@@ -41,6 +41,11 @@ main() {
 	rollMany(game, 0, 16);
 	expect(game.score, 24);
     });
+    test("perfect game", () {
+    	var game = new Bowling();
+	rollMany(game, 10, 20);
+	expect(game.score, 300);
+    });
     //*
     // */
 	
