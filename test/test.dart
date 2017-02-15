@@ -35,11 +35,11 @@ main() {
     });
     test("single strike", () {
     	var game = new Bowling()
-		..roll(10)
+		..roll(10) // 10 +7
 		..roll(6)
-		..roll(1);
+		..roll(1); // 17 + 7 
 	rollMany(game, 0, 16);
-	expect(game.score, 28);
+	expect(game.score, 24);
     });
     //*
     // */
