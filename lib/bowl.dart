@@ -1,7 +1,6 @@
 
 class Bowling {
-    Bowling roll(int score) {
-	return this;
-    }
-    int get score => 0;
+    int _score = 0;
+    int get score => _score;
+    void set roll (int s){ _score = _score + s;}
 }
