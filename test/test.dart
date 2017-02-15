@@ -1,6 +1,13 @@
 import "package:test/test.dart";
 import "../lib/bowl.dart";
 
+Bowling rollMany(Bowling b, int score, int count) {
+    for (var i = count ; i>0; i--) {
+    	b.roll(score);
+    }
+    return b;
+}
+
 main() {
 
     test("this actually runs", () {
@@ -9,16 +16,12 @@ main() {
 
     test("gutter game", () {
     	var game = new Bowling();
-	for (var i=0; i<20; i++) {
-	    game.roll ( 0 );
-	}
+	rollMany(game, 0, 20);
 	expect(game.score, 0);
     });
     test("all singles", () {
     	var game = new Bowling();
-	for (var i=0; i<20; i++) {
-	    game.roll ( 1 );
-	}
+	rollMany(game, 1, 20);
 	expect(game.score, 20);
     });
     //*
