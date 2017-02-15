@@ -1,5 +1,5 @@
 name: bowling
 version: 0.0.1
-description: A simple console application.
+description: bowling kata
 dev_dependencies:
   test: 
