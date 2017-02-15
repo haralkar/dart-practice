@@ -25,6 +25,15 @@ main() {
 	expect(game.score, 20);
     });
     //*
+    test("single spare", () {
+    	var game = new Bowling()
+		..roll(4)
+		..roll(6)
+		..roll(6)
+		..roll(1);
+	rollMany(game, 0, 16);
+	expect(game.score, 23);
+    });
     // */
 	
 }
