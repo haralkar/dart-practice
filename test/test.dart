@@ -10,14 +10,14 @@ main() {
     test("gutter game", () {
     	var game = new Bowling();
 	for (var i=0; i<20; i++) {
-	    game.roll = 0;
+	    game.roll ( 0 );
 	}
 	expect(game.score, 0);
     });
     test("all singles", () {
     	var game = new Bowling();
 	for (var i=0; i<20; i++) {
-	    game.roll = 1;
+	    game.roll ( 1 );
 	}
 	expect(game.score, 20);
     });
