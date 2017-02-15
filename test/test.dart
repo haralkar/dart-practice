@@ -24,7 +24,6 @@ main() {
 	rollMany(game, 1, 20);
 	expect(game.score, 20);
     });
-    //*
     test("single spare", () {
     	var game = new Bowling()
 		..roll(4)
@@ -34,6 +33,15 @@ main() {
 	rollMany(game, 0, 16);
 	expect(game.score, 23);
     });
+    test("single strike", () {
+    	var game = new Bowling()
+		..roll(10)
+		..roll(6)
+		..roll(1);
+	rollMany(game, 0, 16);
+	expect(game.score, 28);
+    });
+    //*
     // */
 	
 }
