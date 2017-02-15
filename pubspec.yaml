@@ -1,0 +1,5 @@
+name: bowling
+version: 0.0.1
+description: A simple console application.
+dev_dependencies:
+  test: 
