@@ -3,6 +3,7 @@ import "../lib/bowl.dart";
 
 abstract class IRollMany {
     Bowling rollMany( int score, int count) ;
+    Bowling roll64Spare() ;
     
 }
 class RollManyBowling extends Bowling with IRollMany {
@@ -10,6 +11,11 @@ class RollManyBowling extends Bowling with IRollMany {
 	for (var i = count ; i>0; i--) {
 	    roll(score);
 	}
+	return this;
+    }
+    Bowling roll64Spare() {
+	roll(6);
+	roll(4);
 	return this;
     }
 }
@@ -34,20 +40,17 @@ main() {
     });
     test("single spare", () {
     	var game = new RollManyBowling()
-		..roll(4)
-		..roll(6)
-		..roll(6)
-		..roll(1)
-		..rollMany(0, 16);
-	expect(game.score, 23);
+	    ..roll64Spare()
+	    ..roll64Spare()
+	    ..rollMany(0, 16);
+	expect(game.score, 26);
     });
     test("single strike", () {
     	var game = new RollManyBowling()
-		..roll(10) // 10 +7
-		..roll(6)
-		..roll(1) // 17 + 7 
-		..rollMany(1, 16); //24 + 16 == 40
-	expect(game.score, 40);
+		..roll(10) // 10 +10
+		..roll64Spare() // 20 + 10,1 
+		..rollMany(1, 16); //31 + 16 == 47
+	expect(game.score, 47);
     });
     test("perfect game", () {
     	var game = new RollManyBowling()
