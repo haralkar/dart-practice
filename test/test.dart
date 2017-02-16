@@ -1,49 +1,57 @@
 import "package:test/test.dart";
 import "../lib/bowl.dart";
 
-Bowling rollMany(Bowling b, int score, int count) {
-    for (var i = count ; i>0; i--) {
-    	b.roll(score);
+abstract class IRollMany {
+    Bowling rollMany( int score, int count) ;
+    
+}
+class RollManyBowling extends Bowling with IRollMany {
+    Bowling rollMany( int score, int count) {
+	for (var i = count ; i>0; i--) {
+	    roll(score);
+	}
+	return this;
     }
-    return b;
 }
 
 main() {
+
+    
 
     test("this actually runs", () {
 	expect(true,true);
     });
 
     test("gutter game", () {
-    	var game = new Bowling();
-	rollMany(game, 0, 20);
+    	var game = new RollManyBowling()
+	    ..rollMany(0, 20);
 	expect(game.score, 0);
     });
     test("all singles", () {
-    	var game = new Bowling();
-	rollMany(game, 1, 20);
+    	var game = new RollManyBowling()
+	    ..rollMany( 1, 20);
 	expect(game.score, 20);
     });
     test("single spare", () {
-    	var game = new Bowling()
+    	var game = new RollManyBowling()
 		..roll(4)
 		..roll(6)
 		..roll(6)
-		..roll(1);
-	rollMany(game, 0, 16);
+		..roll(1)
+		..rollMany(0, 16);
 	expect(game.score, 23);
     });
     test("single strike", () {
-    	var game = new Bowling()
+    	var game = new RollManyBowling()
 		..roll(10) // 10 +7
 		..roll(6)
-		..roll(1); // 17 + 7 
-	rollMany(game, 1, 16);
+		..roll(1) // 17 + 7 
+		..rollMany(1, 16);
 	expect(game.score, 40);
     });
     test("perfect game", () {
-    	var game = new Bowling();
-	rollMany(game, 10, 20);
+    	var game = new RollManyBowling()
+	    ..rollMany(10, 20);
 	expect(game.score, 300);
     });
     //*
