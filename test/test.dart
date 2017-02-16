@@ -46,7 +46,7 @@ main() {
 		..roll(10) // 10 +7
 		..roll(6)
 		..roll(1) // 17 + 7 
-		..rollMany(1, 16);
+		..rollMany(1, 16); //24 + 16 == 40
 	expect(game.score, 40);
     });
     test("perfect game", () {
