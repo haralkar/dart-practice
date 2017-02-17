@@ -28,5 +28,5 @@ class Bowling {
 }
 
 class Sorting {
-    int get count => 0;
+    bool isSorted = false;
 }

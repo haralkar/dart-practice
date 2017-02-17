@@ -64,11 +64,16 @@ main() {
     //
 
 
-    test("perfect game", () {
+    test("empty is empty", () {
     	var sorted = new TestSorting();
-	expect(sorted.count, 0);
+	expect(sorted.isSorted, false);
     });
-    //*
+    /*
+    test("single item counts as one", () {
+    	var sorted = new TestSorting()
+	    ..add(1);
+	expect(sorted.count, 1);
+    });
     // */
 	
 }
