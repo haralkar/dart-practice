@@ -68,7 +68,7 @@ main() {
     	var sorted = new TestSorting();
 	expect(sorted.isSorted, false);
     });
-    /*
+    //*
     test("single item counts as one", () {
     	var sorted = new TestSorting()
 	    ..add(1);

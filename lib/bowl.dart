@@ -29,4 +29,10 @@ class Bowling {
 
 class Sorting {
     bool isSorted = false;
+    List<int> list = new List<int>();
+    add( int d) {
+	count ++;
+    	list.add(d);
+    }
+    int count = 0;
 }
