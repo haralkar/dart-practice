@@ -82,6 +82,15 @@ main() {
 	expect(sorted.list[0],1);
 	expect(sorted.list[1],2);
     });
+    test("in stay in", () {
+    	var sorted = new TestSorting()
+	    ..add(1)
+	    ..add(2)
+	    ..sort();
+	expect(sorted.isSorted, true);
+	expect(sorted.list[0],1);
+	expect(sorted.list[1],2);
+    });
     //*
     // */
 	
