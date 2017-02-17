@@ -20,9 +20,9 @@ class RollManyBowling extends Bowling with IRollMany {
     }
 }
 
-main() {
+class TestSorting extends Sorting {}
 
-    
+main() {
 
     test("this actually runs", () {
 	expect(true,true);
@@ -56,6 +56,17 @@ main() {
     	var game = new RollManyBowling()
 	    ..rollMany(10, 20);
 	expect(game.score, 300);
+    });
+
+
+    //
+    // Sorting
+    //
+
+
+    test("perfect game", () {
+    	var sorted = new TestSorting();
+	expect(sorted.count, 0);
     });
     //*
     // */

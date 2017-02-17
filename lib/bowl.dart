@@ -26,3 +26,7 @@ class Bowling {
     	_score.add(s);
     }
 }
+
+class Sorting {
+    int get count => 0;
+}
