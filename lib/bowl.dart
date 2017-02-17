@@ -35,4 +35,14 @@ class Sorting {
     	list.add(d);
     }
     int count = 0;
+    sort() {
+    	list = internalSort(list);
+	isSorted = true;
+    }
+    List<int> internalSort(list) {
+    	if (list[0] > list[1]) {
+	    return [list[1], list[0]];
+	}
+	return list;
+    }
 }

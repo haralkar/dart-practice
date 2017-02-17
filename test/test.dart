@@ -68,12 +68,21 @@ main() {
     	var sorted = new TestSorting();
 	expect(sorted.isSorted, false);
     });
-    //*
     test("single item counts as one", () {
     	var sorted = new TestSorting()
 	    ..add(1);
 	expect(sorted.count, 1);
     });
+    test("couple go in order", () {
+    	var sorted = new TestSorting()
+	    ..add(2)
+	    ..add(1)
+	    ..sort();
+	expect(sorted.isSorted, true);
+	expect(sorted.list[0],1);
+	expect(sorted.list[1],2);
+    });
+    //*
     // */
 	
 }
