@@ -102,6 +102,53 @@ main() {
 	expect(sorted.list[1],2);
 	expect(sorted.list[2],3);
     });
+    test("no loosing split values", () {
+    	var sorted = new TestSorting()
+	    ..add(3)
+	    ..add(3)
+	    ..add(3)
+	    ..sort();
+	expect(sorted.isSorted, true);
+	expect(sorted.list[0],3);
+	expect(sorted.list[1],3);
+	expect(sorted.list[2],3);
+    });
+    test("split in the middle", () {
+    	var sorted = new TestSorting()
+	    ..add(2)
+	    ..add(1)
+	    ..add(3)
+	    ..sort();
+	expect(sorted.isSorted, true);
+	expect(sorted.list[0],1);
+	expect(sorted.list[1],2);
+	expect(sorted.list[2],3);
+    });
+    test("split in the back", () {
+    	var sorted = new TestSorting()
+	    ..add(3)
+	    ..add(2)
+	    ..add(1)
+	    ..sort();
+	expect(sorted.isSorted, true);
+	expect(sorted.list[0],1);
+	expect(sorted.list[1],2);
+	expect(sorted.list[2],3);
+    });
+    test("split in the middle", () {
+    	var sorted = new TestSorting()
+	    ..add(2)
+	    ..add(1)
+	    ..add(3)
+	    ..sort();
+	expect(sorted.isSorted, true);
+	expect(sorted.list[0],1);
+	expect(sorted.list[1],2);
+	expect(sorted.list[2],3);
+    });
+
+
+
     //*
     // */
 	

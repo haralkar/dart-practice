@@ -42,20 +42,34 @@ class Sorting {
 	isSorted = true;
     }
     List<int> internalSort(list) {
-	if (list.length == 1) {
+	if (list.length < 2) {
 	    return list;
-	} else if (list.length == 2) {
+	}
+	if (list.length == 2) {
 	    if (list[0] > list[1]) {
 		return [list[1], list[0]];
 	    }
 	    return list;
 	}
 	List<int> split = [list[0]];
-	List<int> after = [list[1], list[2]];
-	List<int> sorted = internalSort(after);
-	print("$split, $after");
-	split.addAll(sorted);
-	print("$split");
-	return split;
+	print("split on $split");
+	List<int> before = new List<int>();
+	List<int> after = new List<int>();
+
+	for (int i = 1 ; i < list.length; i++ ) {
+	    int item = list[i];
+	    if (item < split[0]) {
+		before.add( item );
+		print("before (now $before)");
+	    } else {
+	    	after.add( item );
+		print("after (now $after)");
+	    }
+	}
+
+	before = internalSort(before);
+	before.addAll(split);
+	before.addAll(internalSort(after));
+	return before;
     }
 }
