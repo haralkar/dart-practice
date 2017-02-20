@@ -113,17 +113,6 @@ main() {
 	expect(sorted.list[1],3);
 	expect(sorted.list[2],3);
     });
-    test("split in the middle", () {
-    	var sorted = new TestSorting()
-	    ..add(2)
-	    ..add(1)
-	    ..add(3)
-	    ..sort();
-	expect(sorted.isSorted, true);
-	expect(sorted.list[0],1);
-	expect(sorted.list[1],2);
-	expect(sorted.list[2],3);
-    });
     test("split in the back", () {
     	var sorted = new TestSorting()
 	    ..add(3)
@@ -145,6 +134,15 @@ main() {
 	expect(sorted.list[0],1);
 	expect(sorted.list[1],2);
 	expect(sorted.list[2],3);
+    });
+    test("adding to a sorted list dirties it", () {
+    	var sorted = new TestSorting()
+	    ..add(2)
+	    ..add(1)
+	    ..add(3)
+	    ..sort()
+	    ..add(2);
+	expect(sorted.isSorted, false);
     });
 
 

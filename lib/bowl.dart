@@ -31,10 +31,10 @@ class Sorting {
     bool isSorted = false;
     List<int> list = new List<int>();
 
-    //Sorting(List<int> this.list) {}
     add( int d) {
 	count ++;
     	list.add(d);
+	isSorted = false;
     }
     int count = 0;
     sort() {
@@ -52,7 +52,6 @@ class Sorting {
 	    return list;
 	}
 	List<int> split = [list[0]];
-	print("split on $split");
 	List<int> before = new List<int>();
 	List<int> after = new List<int>();
 
@@ -60,16 +59,17 @@ class Sorting {
 	    int item = list[i];
 	    if (item < split[0]) {
 		before.add( item );
-		print("before (now $before)");
+	    } else if (item == split[0]) {
+		split.add( item );
 	    } else {
 	    	after.add( item );
-		print("after (now $after)");
 	    }
 	}
 
 	before = internalSort(before);
 	before.addAll(split);
 	before.addAll(internalSort(after));
+
 	return before;
     }
 }
