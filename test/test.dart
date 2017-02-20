@@ -91,6 +91,17 @@ main() {
 	expect(sorted.list[0],1);
 	expect(sorted.list[1],2);
     });
+    test("all is after split", () {
+    	var sorted = new TestSorting()
+	    ..add(1)
+	    ..add(3)
+	    ..add(2)
+	    ..sort();
+	expect(sorted.isSorted, true);
+	expect(sorted.list[0],1);
+	expect(sorted.list[1],2);
+	expect(sorted.list[2],3);
+    });
     //*
     // */
 	

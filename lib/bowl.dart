@@ -30,6 +30,8 @@ class Bowling {
 class Sorting {
     bool isSorted = false;
     List<int> list = new List<int>();
+
+    //Sorting(List<int> this.list) {}
     add( int d) {
 	count ++;
     	list.add(d);
@@ -40,9 +42,20 @@ class Sorting {
 	isSorted = true;
     }
     List<int> internalSort(list) {
-    	if (list[0] > list[1]) {
-	    return [list[1], list[0]];
+	if (list.length == 1) {
+	    return list;
+	} else if (list.length == 2) {
+	    if (list[0] > list[1]) {
+		return [list[1], list[0]];
+	    }
+	    return list;
 	}
-	return list;
+	List<int> split = [list[0]];
+	List<int> after = [list[1], list[2]];
+	List<int> sorted = internalSort(after);
+	print("$split, $after");
+	split.addAll(sorted);
+	print("$split");
+	return split;
     }
 }
